@@ -1,26 +1,39 @@
-language: python
-node_js:
-  - "10"
-python:
-  - "3.7"
 sudo: required
 branches:
   only:
     - master
-install:
-  - npm install
-  - pip install awscli
-before_script:
-  - npm install -g @angular/cli
-script:
-  - ng lint
-  - ng build --prod --aot --base-href https://kaustubhk.com
-deploy:
-  provider: script
-  script: bash deploy.sh
-  skip_cleanup: true
-  on:
-    branch: master
+stages:
+  - angular
+  - awscli
+jobs:
+  include:
+    - stage: angular
+      language: node_js
+      node_js:
+        - "10"
+      install:
+        - npm install
+      before_script:
+        - npm install -g @angular/cli
+      script:
+        - ng lint
+        - ng build --prod --aot --base-href https://kaustubhk.com
+    - stage: awscli
+      language: python
+      python:
+        - "3.7"
+      install:
+        - pip install awscli
+      script:
+        - echo "Uploading to S3"
+      deploy:
+        provider: script
+        script: bash deploy.sh
+        skip_cleanup: true
+        on:
+          branch: master
+      after_success:
+        - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
 notifications:
   email:
     on_failure: always
