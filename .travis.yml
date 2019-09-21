@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - "10"
+sudo: required
+branches:
+  only:
+    - master
+install:
+  - npm install
+before_script:
+  - npm install -g @angular/cli
+script:
+  - ng lint
+  - ng build --prod --aot --base-href https://kaustubhk.com
+deploy:
+  provider: script
+  script: bash deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master
+notifications:
+  email:
+    on_failure: always
+env:
+  global:
+    - WEBSITE_BUCKET=kaustubhk.com
+    - AWS_DEFAULT_REGION=us-east-1
+    - AWS_DEFAULT_OUTPUT=json
