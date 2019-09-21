@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-  - "10"
+- '10'
 sudo: required
 branches:
   only:
-    - master
+  - master
 install:
-  - npm install
+- npm install
 before_script:
-  - npm install -g @angular/cli
+- npm install -g @angular/cli
 script:
-  - ng lint
-  - ng build --prod --aot --base-href https://kaustubhk.com
+- ng lint
+- ng build --prod --aot --base-href https://kaustubhk.com
 deploy:
   provider: script
   script: bash deploy.sh
@@ -23,6 +23,9 @@ notifications:
     on_failure: always
 env:
   global:
-    - WEBSITE_BUCKET=kaustubhk.com
-    - AWS_DEFAULT_REGION=us-east-1
-    - AWS_DEFAULT_OUTPUT=json
+  - WEBSITE_BUCKET=kaustubhk.com
+  - AWS_DEFAULT_REGION=us-east-1
+  - AWS_DEFAULT_OUTPUT=json
+  - secure: Nnvi9BUrmS2i0VdjbuwJnZeM+C247a8VCt3CeQzOUJY3mp2qn1dz/cqG0l14a91A6RpB8zme/RSZX3MhL+uFd4mYlPz/ogNF6uTsSiFWNjW8CC1+jCUZ+owKAlECkoKsl5V2HCAt3M7/jVkI8XphROVsn/++ElWv5VZFbLAfZjH3rUb1olIIY9K/u3xq7pRsEJEkP69XH8XT5/pciL2BRhNpj+ihwhJ1a/A7JKj73b15c9bkyE4Agld0qWImNU5+92zY2Wivr/bisi3gjUU9PGlpB+g0U1tsJ1C+HAyQi3apbXX3q8g2unJh7q24jXrXoSuevaGxobk/Edj2TrfoShyfSwhRhXS6ecXI5LDD1dDds0BE06SWEunBLnrv/RIm1SxKV6iBRDTuQt2D0I9jp5Zifzwibtmxrs+h2pyVyLaU9UgaGQ0THMxS4tb3xGUaqkLX85xxnACdH62G9MpnQEt5kguQ5UpAR+z+GafJvXsDgcXbj5nVpr2SmpMbzW8AQLO33WBOLHlhHqRecCuHjLqiA87V9y35ydnaXAIcxvhYCvFs5l/6xtV+QjmJ2we/im4OBOBktTUai2fDkqGQObJC1q5nQB1caVgzP5zRjrCc/GfavPQIGMdT23DyHfEGOVgNQgxJXvsBjqt0q6ZZQY23+dEoXSDu1DaQnAZLwPo=
+  - secure: kE8A0z9bAkNLYHg9gfSPcPtNoU808QNzZeXRW1hBaX09fgv2Th3fSn9q/vNpGobc1uvznpllsOm3FGGlhyMceAhpfYF/SCB1wB/E2WFuaLf1xditDzaQk4inm619g9GulaEcRl73kSTvawSoPJyJ9M7EipXJrkZDnEAzwcPBAPHlWABYbXbRyh6wu1dM2GY4v+up6iESEEDRZgyAFZbvQ80DZz7HqJCFVGbbKy9REMyBSZCI1jMawUZnDXvnbU1pR+5QZPoQakJvaR+VZAhDKKtZ6HzgGXN9vKzxulq69fiwdqeLW3/1x8LoQcnGkQUXUGnRKaZDZHyEd62S+Imdd6GM6Sh9546Xo04IOj8zPs9LldQfhlsrIkOKWt3d2V6UiN0RuPUg/H2w3MLl9PNBgpaGghr8q0ejlExfZ6rbc5plkRLLPbCD8GG1E8jlw/GSmg6/Y3zQEEOKXbSRsf4Y7roLVVSjsVFcFX1KVsITiOwp1xbgZKlDgMeuFWRKAUYqwGeVal8Rv/52N2kzBwxGpagyg9qy3+St3y3fFBslxebCnc0/f4fs5Vbdz0nP8p8RmM8BlyHspp/1OJ3k4ff/Y8gdqkWc+ULu4U6lO9b/TYkb1aHilD0+fL4SwpB22psMteicEkbbkOTewfVjttHBaKhyZ0+I6q/4FwHjmVOz8kI=
+  - secure: Vyk1STzB+IYXHQX84hW8aM7HyQmP4S8+b78GCymhD3eiUyD3PxwPj3SbucPp6BAyRm3g61ceLzYd92zqWDh2XuWgd2fIZtynJE2pecAb/6RGZ4YHIfVkqGQ5Pxx+rNYUCQ8HNEOrb1RBeusfCL3UjIb6hEI3gbwvt0t/VvNV1vJFByDSz5lxiDNnO2gcYNE2oL/HwEhTwkNi/G4Z2u2OFPPtbvz4Pe5Vae2Q9g7m5erxxieghoyZSr8fKxwh0fzMJltAVc3VpgQ4ED+5e/nxne/ohoUzO37UTwUli6r6RPLCdq3qOTB8yhO1qDvyA/SidMyC+W7MdiGfCb7ZLP1qmAu5CsY0r7H88UkBR4gobUbDGxOlivNPOkeXVzGNUuZfRXbsAyCqntdFW8A0qBd8xuL+gnIYvzyp8lUrzzrPuTMR4MJk6lCkByqIjCFc5t5xFgpsoWFe4L/zQAVFlzWVkS1lHgNRADqgMdl9+/gH2Pp2qQDdnNY2h/KqCfCBMH2h0wS9dpwy1dOQcTiy6TLga7LmS+Yv82xV7egVRadAYRiiGzEo6P9flF/JFBfww5KX5d0iB4zZvwyLkhj+wnHZMrdVKhmcTQ72DpqgCrBNLvTZGfZWwj9rS1W4lMIpvGdjXmOiMCl2sR5e3y0x2EFLJoNq2orkoJv+UvJttrtaUrQ=
