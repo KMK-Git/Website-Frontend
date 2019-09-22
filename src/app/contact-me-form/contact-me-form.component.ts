@@ -14,6 +14,7 @@ export class ContactMeFormComponent implements OnInit {
   pendingMessageEnabled = false;
   formEnabled = true;
   errorMessage = '';
+  recaptchaResponse = '';
   contactForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
@@ -35,12 +36,18 @@ export class ContactMeFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  public resolved(recaptchaResponse: string) {
+    this.recaptchaResponse = recaptchaResponse;
+  }
+
   onSubmit() {
     this.formEnabled = false;
     this.successMessageEnabled = false;
     this.errorMessageEnabled = false;
     this.pendingMessageEnabled = true;
-    this.httpService.postRequest('contact-form', this.contactForm.value).subscribe(
+    const body = this.contactForm.value;
+    body.recaptcha = this.recaptchaResponse;
+    this.httpService.postRequest('contact-form', body).subscribe(
       msg => {
         console.log(msg);
         this.pendingMessageEnabled = false;
