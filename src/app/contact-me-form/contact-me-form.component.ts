@@ -9,12 +9,12 @@ import { Validators } from '@angular/forms';
   styleUrls: ['./contact-me-form.component.css']
 })
 export class ContactMeFormComponent implements OnInit {
-  private errorMessageEnabled = false;
-  private successMessageEnabled = false;
-  private pendingMessageEnabled = false;
-  private formEnabled = true;
-  private errorMessage = '';
-  private contactForm = new FormGroup({
+  errorMessageEnabled = false;
+  successMessageEnabled = false;
+  pendingMessageEnabled = false;
+  formEnabled = true;
+  errorMessage = '';
+  contactForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     email: new FormControl('', [Validators.required, Validators.email]),
