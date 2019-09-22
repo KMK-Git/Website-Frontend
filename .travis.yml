@@ -20,7 +20,7 @@ deploy:
     secure: fwxk+gKCHjLlmDGkOFUt6DgypzuAvnuA3gtZABrrDzWXkdl4nxGvs6iKDTnK4hYx/EnmbGMZySV+IBPnplRq7d3ozQZJtY8O0qFuGh5j6qtkXzPvsyNTHxf7ET9IDZj2RsUTEYU+RR6bqxkxcGQ2XF1QHAkGvuof+OOvzLc9nrGxt/JtlbqQblWNHG1JKEq1VBprEiyKXKrUhI6BMLm9NRX8xcDWi2KPH8ql/BfIUxB586XVGrWDmM8/SXwEy55/WwWiGNuJ521+UL6LNXaV6ah3aSdfWDqAXZIT2p5A/d48y/VUC0VT8gKVvIeMAwJX9wfmfnSaM7N13gjBPW2MewBCuB4CCmDo1pYiuQ/l5GiGnoBQvzk2/zYVQh0LhoHnW8pABMuKvRMUH63xVolXvm1/klm8WJ238AmHKPd6+hFcGOdxmKvhvV47c2S2BEYzFAYKcQp9zvHqlMS5iSbhrODXmGT1AlFp72jMquahIlQ46C6YDZwW+rTtd7k6rJb/pEStFDeGIAwxdDBpGgtwiXWdeK3EdzGjrsJo2dqxC853C2yGZhWvdHtUoC7FrUF+zKQ68ZzECFEe7KGY24y1nRYebCYRGZrOz9unZv+AQPESnPYoy6clMDS6ep+7sq4aUIJ5nvDJOoI3vuDqq/yd8zc0lnhR4cYtKNDvhl7FeH8=
   bucket: kaustubhk.com
   local-dir: "./dist/web-app/"
-  upload-dir: website/
+  upload-dir: website
   skip_cleanup: true
   on:
     branch: master
