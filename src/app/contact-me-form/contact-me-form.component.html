@@ -91,8 +91,18 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-md-12">
+      <re-captcha formControlName="recaptcha" required style="display: inline-block;"></re-captcha>
+    </div>
+    <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="alert alert-danger">
+      <div *ngIf="recaptcha.errors.required">
+        Recaptcha is required.
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-6 ml-auto mr-auto">
-      <button style="margin-bottom: 20px;" class="btn btn-primary btn-block btn-round" type="submit"
+      <button style="margin-bottom: 20px; margin-top: 20px;" class="btn btn-primary btn-block btn-round" type="submit"
         [disabled]="!contactForm.valid || !formEnabled">Send </button>
     </div>
     <div class="col-md-12" *ngIf="pendingMessageEnabled || errorMessageEnabled || successMessageEnabled">

@@ -20,12 +20,14 @@ export class ContactMeFormComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     subject: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     message: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+    recaptcha: new FormControl(null, Validators.required)
   });
   get firstName(): AbstractControl { return this.contactForm.get('firstName'); }
   get lastName(): AbstractControl { return this.contactForm.get('lastName'); }
   get email(): AbstractControl { return this.contactForm.get('email'); }
   get subject(): AbstractControl { return this.contactForm.get('subject'); }
   get message(): AbstractControl { return this.contactForm.get('message'); }
+  get recaptcha(): AbstractControl { return this.contactForm.get('message'); }
 
   constructor(private httpService: HttpRequestsService) {
   }
