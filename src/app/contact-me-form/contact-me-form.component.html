@@ -92,7 +92,19 @@
   </div>
   <div class="row">
     <div class="col-md-6 ml-auto mr-auto">
-      <button class="btn btn-primary btn-block btn-round" type="submit" [disabled]="!contactForm.valid">Send </button>
+      <button style="margin-bottom: 20px;" class="btn btn-primary btn-block btn-round" type="submit"
+        [disabled]="!contactForm.valid || !formEnabled">Send </button>
+    </div>
+    <div class="col-md-12" *ngIf="pendingMessageEnabled || errorMessageEnabled || successMessageEnabled">
+      <div *ngIf="pendingMessageEnabled" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div *ngIf="errorMessageEnabled" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessageEnabled" class="alert alert-success">
+        Your response has been record.
+      </div>
     </div>
   </div>
 </form>
