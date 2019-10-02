@@ -28,6 +28,12 @@ import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
       RecaptchaModule,
       RecaptchaFormsModule
    ],
+   providers: [{
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+         siteKey: '6LeTN7cUAAAAAD2BahVW8ZTmfENTYqNb4eRCz7Ug',
+      } as RecaptchaSettings,
+   }],
    bootstrap: [
       AppComponent
    ]
