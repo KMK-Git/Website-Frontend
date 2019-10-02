@@ -1,0 +1,144 @@
+<form class="contact" [formGroup]="birthdayPostForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="number" min="1" max="31" class="form-control" placeholder="Day" formControlName="day" required>
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="day.invalid && (day.dirty || day.touched)" class="alert alert-danger">
+            <div *ngIf="day.errors.required">
+              Day is required.
+            </div>
+          </div>
+          <div class="alert alert-danger"
+            *ngIf="(day.dirty || day.touched) && (month.dirty || month.touched) && birthdayPostForm.errors?.dayValidator">
+            Day is invalid for given month
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="number" min="1" max="12" class="form-control" placeholder="Month" formControlName="month"
+            required>
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="month.invalid && (month.dirty || month.touched)" class="alert alert-danger">
+            <div *ngIf="month.errors.required">
+              Month is required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="form-control" placeholder="First Name" formControlName="firstName" required
+            maxlength="50">
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+            <div *ngIf="firstName.errors.required">
+              First Name is required.
+            </div>
+            <div *ngIf="firstName.errors.maxlength">
+              First Name must be at most 50 characters long.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName" required
+            maxlength="50">
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors.required">
+              Last Name is required.
+            </div>
+            <div *ngIf="lastName.errors.maxlength">
+              Last Name must be at most 50 characters long.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <input type="email" class="form-control" placeholder="Email" formControlName="email" required>
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+            <div *ngIf="email.errors.email">
+              Enter a valid email.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <select formControlName="timezone" class="form-control">
+            <option [ngValue]="null" disabled>Choose your timezone</option>
+            <option *ngFor="let tz of allTimezones" [ngValue]="tz.offset">
+              {{ tz.text }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-12">
+          <div *ngIf="timezone.invalid && (timezone.dirty || timezone.touched)" class="alert alert-danger">
+            <div *ngIf="timezone.errors.required">
+              Timezone is required.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <textarea class="form-control" placeholder="Subtext" rows="7" formControlName="subtext" required
+        maxlength="500"></textarea>
+      <div *ngIf="subtext.invalid && (subtext.dirty || subtext.touched)" class="alert alert-danger">
+        <div *ngIf="subtext.errors.required">
+          Subtext is required.
+        </div>
+        <div *ngIf="subtext.errors.maxlength">
+          Subtext must be at most 100 characters long.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <button style="margin-bottom: 20px; margin-top: 20px;" class="btn btn-primary btn-block btn-round" type="submit"
+        const body=this.birthdayPostForm.value; [disabled]="!birthdayPostForm.valid || !formEnabled">Send </button>
+    </div>
+    <div class="col-md-12" *ngIf="pendingMessageEnabled || errorMessageEnabled || successMessageEnabled">
+      <div *ngIf="pendingMessageEnabled" class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      <div *ngIf="errorMessageEnabled" class="alert alert-danger">
+        {{ errorMessage }}
+      </div>
+      <div *ngIf="successMessageEnabled" class="alert alert-success">
+        Your response has been record.
+      </div>
+    </div>
+  </div>
+</form>

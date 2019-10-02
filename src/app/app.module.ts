@@ -7,12 +7,16 @@ import { IndexComponent } from './index/index.component';
 import { ContactMeFormComponent } from './contact-me-form/contact-me-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaFormsModule } from 'ng-recaptcha';
+import { BirthdayPostComponent } from './birthday-post/birthday-post.component';
+import { BirthdayPostFormComponent } from './birthday-post-form/birthday-post-form.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       IndexComponent,
-      ContactMeFormComponent
+      ContactMeFormComponent,
+      BirthdayPostComponent,
+      BirthdayPostFormComponent
    ],
    imports: [
       BrowserModule,
@@ -22,12 +26,6 @@ import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaFormsM
       RecaptchaModule,
       RecaptchaFormsModule
    ],
-   providers: [{
-      provide: RECAPTCHA_SETTINGS,
-      useValue: {
-         siteKey: '6LeTN7cUAAAAAD2BahVW8ZTmfENTYqNb4eRCz7Ug',
-      } as RecaptchaSettings,
-   }],
    bootstrap: [
       AppComponent
    ]
