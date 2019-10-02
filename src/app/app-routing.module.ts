@@ -9,7 +9,7 @@ import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'birthday/add', component: BirthdayPostComponent },
-  { path: 'unsubsribe/:key', component: UnsubscribeComponent },
+  { path: 'unsubscribe/:key', component: UnsubscribeComponent },
 ];
 
 @NgModule({
