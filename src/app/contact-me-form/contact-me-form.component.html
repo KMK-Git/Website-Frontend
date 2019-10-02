@@ -94,11 +94,6 @@
     <div class="col-md-12">
       <re-captcha (resolved)="resolved($event)" formControlName="recaptcha" required style="display: inline-block;"></re-captcha>
     </div>
-    <div *ngIf="recaptcha.invalid && (recaptcha.dirty || recaptcha.touched)" class="alert alert-danger">
-      <div *ngIf="recaptcha.errors.required">
-        Recaptcha is required.
-      </div>
-    </div>
   </div>
   <div class="row">
     <div class="col-md-6 ml-auto mr-auto">
