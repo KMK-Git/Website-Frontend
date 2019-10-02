@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RecaptchaModule, RECAPTCHA_SETTINGS, RecaptchaSettings, RecaptchaFormsModule } from 'ng-recaptcha';
 import { BirthdayPostComponent } from './birthday-post/birthday-post.component';
 import { BirthdayPostFormComponent } from './birthday-post-form/birthday-post-form.component';
+import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
 
 @NgModule({
    declarations: [
@@ -16,7 +17,8 @@ import { BirthdayPostFormComponent } from './birthday-post-form/birthday-post-fo
       IndexComponent,
       ContactMeFormComponent,
       BirthdayPostComponent,
-      BirthdayPostFormComponent
+      BirthdayPostFormComponent,
+      UnsubscribeComponent
    ],
    imports: [
       BrowserModule,

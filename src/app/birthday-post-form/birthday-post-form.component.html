@@ -127,7 +127,7 @@
   <div class="row">
     <div class="col-md-6 ml-auto mr-auto">
       <button style="margin-bottom: 20px; margin-top: 20px;" class="btn btn-primary btn-block btn-round" type="submit"
-        const body=this.birthdayPostForm.value; [disabled]="!birthdayPostForm.valid || !formEnabled">Send </button>
+        [disabled]="!birthdayPostForm.valid || !formEnabled">Send </button>
     </div>
     <div class="col-md-12" *ngIf="pendingMessageEnabled || errorMessageEnabled || successMessageEnabled">
       <div *ngIf="pendingMessageEnabled" class="spinner-border" role="status">

@@ -1,0 +1,52 @@
+<div class="profile-page sidebar-collapse">
+  <div class="main contact-page">
+    <div class="section section-gray">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto text-center">
+            <h3>Do you really want to unsubscribe?</h3>
+            <button style="margin-top: 20px; margin-bottom: 20px;" class="btn btn-primary btn-block btn-round"
+              (click)="unsubscribe()">Yes</button>
+            <a href="/"><button style="margin-top: 20px; margin-bottom: 20px;"
+                class="btn btn-primary btn-block btn-round">No</button></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto text-center" *ngIf="pendingMessageEnabled || errorMessageEnabled">
+            <div *ngIf="pendingMessageEnabled" class="spinner-border" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>
+            <div *ngIf="errorMessageEnabled" class="alert alert-danger">
+              {{ errorMessage }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <nav class="footer-nav">
+          <ul>
+            <li>
+              <a href="https://medium.com/@danramsden/architecting-is-a-word-115d5b5329b4"
+                target="_blank">Architecting</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="credits ml-auto">
+          <span class="copyright">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="assets/js/paper-kit.js?v=2.3.0" type="text/javascript"></script>
+</div>
