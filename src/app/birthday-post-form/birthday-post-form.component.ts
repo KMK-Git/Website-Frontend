@@ -43,7 +43,7 @@ export class BirthdayPostFormComponent implements OnInit {
     lastName: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     timezone: new FormControl('', [Validators.required]),
-    subtext: new FormControl('', [Validators.required, Validators.maxLength(100)]),
+    subtext: new FormControl('', [Validators.required, Validators.maxLength(500)]),
   }, { validators: dayValidator });
   get day(): AbstractControl { return this.birthdayPostForm.get('day'); }
   get month(): AbstractControl { return this.birthdayPostForm.get('month'); }
