@@ -12,7 +12,7 @@ before_script:
   - npm install -g @angular/cli
 script:
   - ng lint
-  - ng build --prod --aot --base-href https://kaustubhk.com
+  - ng build --prod --aot
 deploy:
   provider: s3
   access_key_id: AKIA3EOSC6CWYSHGJOXP
