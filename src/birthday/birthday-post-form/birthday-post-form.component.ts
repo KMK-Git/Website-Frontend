@@ -1,8 +1,9 @@
 import { timezones } from './timezones';
-import { HttpRequestsService } from './../http-requests.service';
+import { HttpRequestsService } from '../../app/http-requests.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { AwsCognitoService } from 'src/app/auth/aws-cognito.service';
 
 
 
@@ -53,20 +54,21 @@ export class BirthdayPostFormComponent implements OnInit {
   get timezone(): AbstractControl { return this.birthdayPostForm.get('timezone'); }
   get subtext(): AbstractControl { return this.birthdayPostForm.get('subtext'); }
 
-  constructor(private httpService: HttpRequestsService) {
+  constructor(private httpService: HttpRequestsService, private cognitoService: AwsCognitoService) {
   }
 
   ngOnInit() {
   }
 
-  onSubmit() {
+  async onSubmit() {
     this.formEnabled = false;
     this.successMessageEnabled = false;
     this.errorMessageEnabled = false;
     this.pendingMessageEnabled = true;
     const body = this.birthdayPostForm.value;
     console.log(body);
-    this.httpService.postRequest('birthday', body).subscribe(
+    const authorizationHeader = {Authorization: await this.cognitoService.getIdToken()};
+    this.httpService.postRequest('birthday', body, authorizationHeader).subscribe(
       msg => {
         console.log(msg);
         this.pendingMessageEnabled = false;
@@ -79,7 +81,7 @@ export class BirthdayPostFormComponent implements OnInit {
         this.successMessageEnabled = false;
         this.errorMessageEnabled = true;
         this.formEnabled = true;
-        this.errorMessage = err;
+        this.errorMessage = err.message;
       }
     );
   }

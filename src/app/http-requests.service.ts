@@ -32,12 +32,13 @@ export class HttpRequestsService {
     }
   }
 
-  postRequest(resource: string, data: object) {
+  postRequest(resource: string, data: object, additionalHeaders: object = {}) {
     const body: string = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Accept: 'application/json'
+        Accept: 'application/json',
+        ...additionalHeaders
       })
     };
     return this.http.post(this.apiBaseUrl + resource, body, httpOptions).pipe(
