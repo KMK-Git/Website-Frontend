@@ -104,14 +104,4 @@ export class AwsCognitoService {
       });
     });
   }
-
-  isUserNotAuthenticated() {
-    return new Observable<boolean>((observer) => {
-      this.getCurrentAuthenticatedUser().subscribe({
-        next: () => observer.next(false),
-        error: () => observer.next(true),
-        complete: () => observer.complete(),
-      });
-    });
-  }
 }
