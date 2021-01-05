@@ -1,16 +1,18 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { LoggedInGuardService } from './logged-in-guard.service';
+import { TestBed, inject, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { LoggedOutGuardService } from './logged-out-guard.service';
 
 describe('Service: LoggedInGuard', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoggedInGuardService]
+      imports: [RouterTestingModule],
+      providers: [LoggedOutGuardService]
     });
   });
 
-  it('should ...', inject([LoggedInGuardService], (service: LoggedInGuardService) => {
+  it('should ...', inject([LoggedOutGuardService], (service: LoggedOutGuardService) => {
     expect(service).toBeTruthy();
   }));
 });

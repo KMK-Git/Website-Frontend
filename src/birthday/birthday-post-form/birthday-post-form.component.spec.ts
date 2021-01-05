@@ -1,19 +1,21 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { BirthdayPostFormComponent } from './birthday-post-form.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('BirthdayPostFormComponent', () => {
   let component: BirthdayPostFormComponent;
   let fixture: ComponentFixture<BirthdayPostFormComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BirthdayPostFormComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [BirthdayPostFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
