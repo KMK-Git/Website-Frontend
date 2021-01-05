@@ -21,6 +21,7 @@ deploy:
   bucket: kaustubhk.com
   local_dir: "./dist/web-app/"
   upload_dir: website
+  skip_cleanup: true
   on:
     branch: master
 after_deploy:
