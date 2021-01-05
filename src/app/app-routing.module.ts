@@ -9,13 +9,13 @@ const routes: Routes = [
   { path: '', component: IndexComponent },
   {
     path: 'birthday',
-    loadChildren: '../birthday/birthday.module#BirthdayModule'
+    loadChildren: () => import('../birthday/birthday.module').then(m => m.BirthdayModule)
   },
   { path: 'unsubscribe/:key', component: UnsubscribeComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
