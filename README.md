@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.com/KMK-Git/Website-Frontend.svg?branch=master)](https://travis-ci.com/KMK-Git/Website-Frontend)
+This repository is now archived. View my latest website [here](https://github.com/KMK-Git/KMK-Git/blob/main/README.md).
+
+--------
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
